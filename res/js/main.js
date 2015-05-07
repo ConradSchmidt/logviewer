@@ -27,7 +27,8 @@ win.on('close', function() {
         var config = JSON.stringify({
             openFiles: scope.openFiles,
             highlighting: scope.highlighting,
-            tail: scope.tail
+            tail: scope.tail,
+            hiddenLineRules: scope.hiddenLineRules
         });
         fs.writeFile('config.json', config);
     }

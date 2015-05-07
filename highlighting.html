@@ -2,36 +2,36 @@
     <table class="table">
         <thead>
             <tr>
-                <td></td>
-                <td>Pattern:</td>
-                <td>Text color:</td>
-                <td>Background color:</td>
-                <td>Icon:</td>
-                <td>Notify as:</td>
+                <td class="actions"></td>
+                <td class="pattern">Pattern:</td>
+                <td class="text-color">Text color:</td>
+                <td class="bg-color">Background color:</td>
+                <td class="icon"></td>
+                <td class="watch">Notify as:</td>
             </tr>
         </thead>
         <tr ng-repeat="setting in highlighting">
-            <td>
+            <td class="actions">
                 <span class="remove glyphicon glyphicon-remove-circle" ng-click="removeRule()"/>
                 <span class="remove glyphicon glyphicon-chevron-up" ng-click="move(1)"/>
                 <span class="remove glyphicon glyphicon-chevron-down" ng-click="move(-1)"/>
             </td>
-            <td>
+            <td class="pattern">
                 <input ng-model="setting.pattern">
             </td>
-            <td>
-                <input ng-model="setting.color">
-                <span ng-style="{background: setting.color}">&nbsp;&nbsp;</span>
+            <td class="text-color">
+                <input ng-model="setting.color"><!-- 
+                 --><span class="preview" ng-style="{background: setting.color}"></span>
             </td>
-            <td>
-                <input ng-model="setting.background">
-                <span ng-style="{background: setting.background}">&nbsp;&nbsp;</span>
+            <td class="bg-color">
+                <input ng-model="setting.background"><!-- 
+                 --><span class="preview" ng-style="{background: setting.background}"></span>
             </td>
-            <td>
+            <td class="icon">
                 <span class="icon glyphicon" ng-class="setting.icon" ng-click="showIcons()"></span>
             </td>
-            <td>
-                <input style="width: 60px" ng-model="setting.watch">
+            <td class="watch">
+                <input ng-model="setting.watch">
             </td>
         </tr>
         <tr>

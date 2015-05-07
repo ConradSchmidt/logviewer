@@ -4,13 +4,7 @@ logviewerApp.controller('highlightingCtl', function($scope, $modal, $modalInstan
 
     // add empty highlighting rule
     $scope.addRule = function() {
-        $scope.highlighting.push({
-            pattern: '',
-            icon: '',
-            color: '',
-            background: ''
-        });
-        update();
+        $scope.highlighting.push({});
     }
 
     // remove highlighting rule

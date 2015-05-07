@@ -1,0 +1,22 @@
+<div id="hidingDialog">
+    <table class="table">
+        <thead>
+            <tr>
+                <td class="actions"></td>
+                <td class="content">Content:</td>
+                <td class="pattern">Sequence pattern:</td>
+            </tr>
+        </thead>
+        <tr ng-repeat="line in hiddenLineRules">
+            <td class="actions">
+                <span class="remove glyphicon glyphicon-remove-circle" ng-click="removeHiding()"/>
+            </td>
+            <td class="content">
+                <textarea ng-model="line.content" rows="3" />
+            </td>
+            <td class="pattern">
+                <input ng-model="line.pattern" />
+            </td>
+        </tr>
+    </table>
+</div>

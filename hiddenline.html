@@ -1,0 +1,6 @@
+<div id="hiddenlinesDialog" class="log-line-list"> 
+    <div class="code-line" ng-repeat="hiddenLine in line.hidden">
+        <span class="index">{{ line.index + $index }}</span>
+        <span class="content" ng-trim="false">{{ hiddenLine }}</span>
+    </div>
+</div>

@@ -1,114 +1,203 @@
 html {
-	height: 100%;
+    height: 100%;
 }
 
 body {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	overflow-x: scroll;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
 }
 
-.container {}
+
 
 .modal-dialog.modal-lg {
-	width: 85%;
+    width: 85%;
 }
 
 .navbar {
-	position: fixed;
-	width: 100%;
-	z-index: 10;
-	border-radius: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    border-radius: 0;
 }
 
 .navbar > div {
-	margin: 7px 0 0 5px;
+    margin: 7px 0 0 5px;
 }
 
 .navbar .open-file {
-	display: inline-block;
-	border-bottom: 2px solid #aaa;
-	padding: 0 2px;
-	margin-right: 5px;
-	cursor: pointer;
+    display: inline-block;
+    border-bottom: 2px solid #aaa;
+    padding: 0 2px;
+    margin-right: 5px;
+    cursor: pointer;
 }
 
 .navbar .open-file .glyphicon {
-	font-size: 0.8em;
+    font-size: 0.8em;
 }
 
 .navbar .open-file.active {
-	border-bottom: 2px solid #3af;
+    border-bottom: 2px solid #3af;
 }
 
 .btn.btn-default input {
-	height: 20px;
+    height: 20px;
+    margin: 0;
+    vertical-align: middle;
 }
+
+
 
 #log {
-	flex-grow: 1;
-	flex-basis: 0;
-	width: initial;
-	padding: 70px 0 0 0;
+    width: initial;
+    padding: 70px 0 0 0;
 }
 
-#logLineList {
-	display: table;
-	min-width: 100%;
-	table-layout: fixed;
-	line-height: 20px;
-	font-family: "Lucida Console", Monaco, monospace;
+.log-line-list {
+    display: table;
+    min-width: 100%;
+    table-layout: fixed;
+    line-height: 20px;
+    font-family: "Lucida Console", Monaco, monospace;
 }
 
-.code-line {
-	display: table-row;
-	white-space: nowrap;
+.log-line-list .code-line {
+    display: table-row;
+    white-space: nowrap;
 }
 
-.code-line span {
-	display: table-cell;
-	padding: 1px 3px;
-	/*border-bottom: 1px dotted #999;*/
+.log-line-list .code-line span {
+    display: table-cell;
+    padding: 1px 3px;
+    /*border-bottom: 1px dotted #999;*/
 }
 
-.code-line .index {
-	border-right: 1px dotted #999;
-	width: 45px;
+.log-line-list .code-line .index {
+    border-right: 1px dotted #999;
+    width: 45px;
 }
 
-.code-line .icon {
-	border-right: 1px dotted #999;
-	width: 25px;
+.log-line-list .code-line .icon {
+    border-right: 1px dotted #999;
+    width: 25px;
 }
 
-.code-line .content {
-	white-space: pre;
+.log-line-list .code-line .content {
+    white-space: pre;
 }
 
+#hiddenlinesDialog .code-line .index {
+	width: 80px;
+}
+#hiddenlinesDialog .code-line .content {
+	width: 100%;
+	white-space: normal;
+	word-break: break-word;
+}
+
+
+#highlightingDialog input {
+	width: 100%;
+}
 #highlightingDialog .remove {
-	cursor: pointer;
+    cursor: pointer;
+}
+
+#highlightingDialog table {
+	table-layout: fixed;
+}
+
+#highlightingDialog .actions {
+	width: 65px;
+}
+#highlightingDialog .pattern {
+	width: 70%%;
+}
+#highlightingDialog .text-color,
+#highlightingDialog .bg-color {
+	width: 100px;
+}
+#highlightingDialog .text-color input,
+#highlightingDialog .bg-color input {
+	width: 80%;
+}
+#highlightingDialog .preview {
+	display: inline-block;
+	height: 26px;
+	border: 1px solid grey;
+	border-left: none;
+	width: 20%;
+	vertical-align: bottom;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 #highlightingDialog .icon {
-	display: inline-block;
-	width: 25px;
-	height: 23px;
-	padding: 3px 2px 4px 2px;
-	text-align: center;
-	border: 1px solid gray;
-	cursor: pointer;
+	width: 32px;
+    cursor: pointer;
+}
+#highlightingDialog .watch {
+	width: 30%;
 }
 
+
+
+#notificationsDialog table {
+	table-layout: fixed;
+}
+
+#notificationsDialog tr {
+	cursor: pointer;
+}
+#notificationsDialog .type {
+	width: 15%;
+}
+#notificationsDialog .line {
+	width: 60px;
+}
+#notificationsDialog .content {
+	width: 85%;
+	word-break: break-word;
+}
+#notificationsDialog .actions {
+	width: 100px;
+	word-break: break-word;
+}
+#notificationsDialog .right {
+	float: right;
+	margin-top: 3px;
+}
+
+
+#hidingDialog .actions {
+	width: 20px;
+}
+#hidingDialog .content {
+	width: 60%;
+}
+#hidingDialog .content textarea {
+	width: 100%;
+}
+#hidingDialog .pattern {
+	width: 40%;
+}
+#hidingDialog .pattern input {
+	width: 100%;
+}
+
+
+
 #iconSelection {
-	padding: 10px;
-	font-size: 2em;
+    padding: 10px;
+    font-size: 2em;
 }
 
 #iconSelection span {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .glyphicon.space:before {
-	content: "\A0";
+    content: "\A0";
 }

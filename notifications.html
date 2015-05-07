@@ -2,20 +2,30 @@
     <table class="table">
         <thead>
             <tr>
-                <td>Type:</td>
-                <td>Line:</td>
-                <td>Conntent:</td>
+                <td class="type">Type:</td>
+                <td class="line">Line:</td>
+                <td class="content">Content:
+                    <span class="right label label-default" ng-click="clearNotifications()">Clear</span>
+                </td>
+                <td class="actions">
+                    <span class="label label-default" ng-click="showHidingDialog()">Hidings</span>
+                </td>
             </tr>
         </thead>
-        <tr ng-repeat="notification in notifications"  ng-click="jumgToLine(notification.line)">
-            <td>
-               {{notification.type}}
+        <tr ng-repeat="notification in notifications" ng-click="jumgToLine(notification.line)">
+            <td class="type">
+                {{notification.type}}
             </td>
-            <td>
+            <td class="line">
                 <span>{{notification.line}}</span>
             </td>
-            <td style="text-overflow: ellipsis">
-                {{notification.content}}
+            <td class="content">
+                <span>{{notification.content}}</span>
+            </td>
+            <td class="actions">
+                <button type="button" class="btn btn-default" ng-click="showHidingDialog()">
+                    <span class="glyphicon glyphicon-remove-circle"></span> &nbsp;Hide
+                </button>
             </td>
         </tr>
     </table>

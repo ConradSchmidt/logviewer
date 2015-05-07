@@ -19,31 +19,35 @@
         <nav class="navbar navbar-default">
             <div>
                 <button id="openFile" type="button" class="btn btn-default" ng-click="showFile()">
-                    <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> &nbsp;Open
+                    <span class="glyphicon glyphicon-folder-open"></span> &nbsp;Open
                     <input style="display:none;" type="file" filepath="file">
                 </button>
                 <button type="button" class="btn btn-default" ng-click="clear()">
-                    <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> &nbsp;Clear List
+                    <span class="glyphicon glyphicon-remove-circle"></span> &nbsp;Clear List
                 </button>
                 <button type="button" class="btn btn-default" ng-click="reload()">
-                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> &nbsp;Reload
+                    <span class="glyphicon glyphicon-refresh"></span> &nbsp;Reload
                 </button>
                 <button type="button" class="btn btn-default" ng-class="tail?'active':''" ng-click="toggleTail()">
-                    <span class="glyphicon glyphicon-save" aria-hidden="true"></span> &nbsp;Tail
+                    <span class="glyphicon glyphicon-save"></span> &nbsp;Tail
                 </button>
                 <button type="button" class="btn btn-default" ng-click="showHighlighting()">
-                    <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> &nbsp;Highlighting
+                    <span class="glyphicon glyphicon-tasks"></span> &nbsp;Highlighting
                 </button>
                 <button type="button" class="btn btn-default" tooltip="{{!searchRes?'No match':'Match'}}" tooltip-placement="bottom">
+                    <span class="glyphicon glyphicon-search"></span>
                     <input type="text" placeholder="Search" ng-model="searchTerm" ng-keypress="search()" >
-                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                 </button>
                 <!-- <button type="button" class="btn btn-default">
-                    <span class="glyphicon glyphicon glyphicon-filter" aria-hidden="true"></span> &nbsp;Filter
+                    <span class="glyphicon glyphicon glyphicon-filter"></span> &nbsp;Filter
                 </button> -->
+                <button type="button" class="btn btn-default" ng-click="scanLogToggle()"  ng-class="autoScan?'active':''">
+                    <span class="glyphicon glyphicon-search"></span>
+                    Scan log
+                </button>
                 <button type="button" class="btn btn-default" ng-click="showNotification()">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    {{ notifications.length }}
+                    <span class="glyphicon glyphicon-exclamation-sign"></span>
+                    <span class="badge">{{ notifications.length }}</span>
                 </button>
             </div>
             <div>
@@ -55,11 +59,11 @@
 
         <div id="log" class="container">
             <div id="upperSpacer"></div>
-            <div id="logLineList">
-                <div id="lineList" class="code-line" ng-repeat="line in visLines track by $index" ng-style="{background: line.background, color:line.color}">
+            <div id="logLineList" class="log-line-list">
+                <div class="code-line" ng-repeat="line in visLines track by $index" ng-style="{background: line.background, color:line.color}">
                     <span class="index">{{ line.index }}</span>
                     <span class="icon"><span class="glyphicon" ng-class="line.icon || 'space'"></span></span>
-                    <span class="content" ng-trim="false">{{ line.content }}</span>
+                    <span class="content" ng-trim="false" ng-click="showHiddenLines(line)">{{ line.content }}</span>
                 </div>
             </div>
             <div id="lowerSpacer"></div>
