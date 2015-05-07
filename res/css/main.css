@@ -1,0 +1,114 @@
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow-x: scroll;
+}
+
+.container {}
+
+.modal-dialog.modal-lg {
+	width: 85%;
+}
+
+.navbar {
+	position: fixed;
+	width: 100%;
+	z-index: 10;
+	border-radius: 0;
+}
+
+.navbar > div {
+	margin: 7px 0 0 5px;
+}
+
+.navbar .open-file {
+	display: inline-block;
+	border-bottom: 2px solid #aaa;
+	padding: 0 2px;
+	margin-right: 5px;
+	cursor: pointer;
+}
+
+.navbar .open-file .glyphicon {
+	font-size: 0.8em;
+}
+
+.navbar .open-file.active {
+	border-bottom: 2px solid #3af;
+}
+
+.btn.btn-default input {
+	height: 20px;
+}
+
+#log {
+	flex-grow: 1;
+	flex-basis: 0;
+	width: initial;
+	padding: 70px 0 0 0;
+}
+
+#logLineList {
+	display: table;
+	min-width: 100%;
+	table-layout: fixed;
+	line-height: 20px;
+	font-family: "Lucida Console", Monaco, monospace;
+}
+
+.code-line {
+	display: table-row;
+	white-space: nowrap;
+}
+
+.code-line span {
+	display: table-cell;
+	padding: 1px 3px;
+	/*border-bottom: 1px dotted #999;*/
+}
+
+.code-line .index {
+	border-right: 1px dotted #999;
+	width: 45px;
+}
+
+.code-line .icon {
+	border-right: 1px dotted #999;
+	width: 25px;
+}
+
+.code-line .content {
+	white-space: pre;
+}
+
+#highlightingDialog .remove {
+	cursor: pointer;
+}
+
+#highlightingDialog .icon {
+	display: inline-block;
+	width: 25px;
+	height: 23px;
+	padding: 3px 2px 4px 2px;
+	text-align: center;
+	border: 1px solid gray;
+	cursor: pointer;
+}
+
+#iconSelection {
+	padding: 10px;
+	font-size: 2em;
+}
+
+#iconSelection span {
+	cursor: pointer;
+}
+
+.glyphicon.space:before {
+	content: "\A0";
+}

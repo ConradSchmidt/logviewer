@@ -1,0 +1,22 @@
+<div id="notificationsDialog">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Type:</td>
+                <td>Line:</td>
+                <td>Conntent:</td>
+            </tr>
+        </thead>
+        <tr ng-repeat="notification in notifications"  ng-click="jumgToLine(notification.line)">
+            <td>
+               {{notification.type}}
+            </td>
+            <td>
+                <span>{{notification.line}}</span>
+            </td>
+            <td style="text-overflow: ellipsis">
+                {{notification.content}}
+            </td>
+        </tr>
+    </table>
+</div>

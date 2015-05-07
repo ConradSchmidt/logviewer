@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Viewer</title>
+    <link rel="stylesheet" type="text/css" href="res/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="res/libs/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="res/css/main.css">
+
+    <script src="res/libs/jquery/jquery.js"></script>
+    <script src="res/libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="res/libs/angular/angular.js"></script>
+    <script src="res/libs/bootstrap/js/ui-bootstrap.min.js"></script>
+</head>
+
+<body ng-app="logviewerApp">
+    <div ng-controller="logviewerAppCtl">
+        <nav class="navbar navbar-default">
+            <div>
+                <button id="openFile" type="button" class="btn btn-default" ng-click="showFile()">
+                    <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> &nbsp;Open
+                    <input style="display:none;" type="file" filepath="file">
+                </button>
+                <button type="button" class="btn btn-default" ng-click="clear()">
+                    <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> &nbsp;Clear List
+                </button>
+                <button type="button" class="btn btn-default" ng-click="reload()">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> &nbsp;Reload
+                </button>
+                <button type="button" class="btn btn-default" ng-class="tail?'active':''" ng-click="toggleTail()">
+                    <span class="glyphicon glyphicon-save" aria-hidden="true"></span> &nbsp;Tail
+                </button>
+                <button type="button" class="btn btn-default" ng-click="showHighlighting()">
+                    <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> &nbsp;Highlighting
+                </button>
+                <button type="button" class="btn btn-default" tooltip="{{!searchRes?'No match':'Match'}}" tooltip-placement="bottom">
+                    <input type="text" placeholder="Search" ng-model="searchTerm" ng-keypress="search()" >
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+                <!-- <button type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon glyphicon-filter" aria-hidden="true"></span> &nbsp;Filter
+                </button> -->
+                <button type="button" class="btn btn-default" ng-click="showNotification()">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    {{ notifications.length }}
+                </button>
+            </div>
+            <div>
+                <div class="open-file" ng-repeat="filename in openFiles track by $index" ng-class="filename == file?'active':''" ng-click="openFile()">
+                    <span class="title">{{ formatPath(filename) }}</span>
+                    <span class="glyphicon glyphicon-remove-circle" ng-click="closeFile()"/></div>
+            </div>
+        </nav>
+
+        <div id="log" class="container">
+            <div id="upperSpacer"></div>
+            <div id="logLineList">
+                <div id="lineList" class="code-line" ng-repeat="line in visLines track by $index" ng-style="{background: line.background, color:line.color}">
+                    <span class="index">{{ line.index }}</span>
+                    <span class="icon"><span class="glyphicon" ng-class="line.icon || 'space'"></span></span>
+                    <span class="content" ng-trim="false">{{ line.content }}</span>
+                </div>
+            </div>
+            <div id="lowerSpacer"></div>
+        </div>
+
+        <script src="res/js/main.js"></script>
+        <script src="res/js/logviewer.js"></script>
+        <script src="res/js/highlighting.js"></script>
+    </div>
+</body>
+
+</html>

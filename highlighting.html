@@ -1,0 +1,50 @@
+<div id="highlightingDialog" ng-app="highlightingCtl">
+    <table class="table">
+        <thead>
+            <tr>
+                <td></td>
+                <td>Pattern:</td>
+                <td>Text color:</td>
+                <td>Background color:</td>
+                <td>Icon:</td>
+                <td>Notify as:</td>
+            </tr>
+        </thead>
+        <tr ng-repeat="setting in highlighting">
+            <td>
+                <span class="remove glyphicon glyphicon-remove-circle" ng-click="removeRule()"/>
+                <span class="remove glyphicon glyphicon-chevron-up" ng-click="move(1)"/>
+                <span class="remove glyphicon glyphicon-chevron-down" ng-click="move(-1)"/>
+            </td>
+            <td>
+                <input ng-model="setting.pattern">
+            </td>
+            <td>
+                <input ng-model="setting.color">
+                <span ng-style="{background: setting.color}">&nbsp;&nbsp;</span>
+            </td>
+            <td>
+                <input ng-model="setting.background">
+                <span ng-style="{background: setting.background}">&nbsp;&nbsp;</span>
+            </td>
+            <td>
+                <span class="icon glyphicon" ng-class="setting.icon" ng-click="showIcons()"></span>
+            </td>
+            <td>
+                <input style="width: 60px" ng-model="setting.watch">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="button" class="btn btn-default" ng-click="addRule()">
+                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Add
+                </button>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
