@@ -154,10 +154,6 @@ logviewerApp.controller('logviewerAppCtl', function($scope, $modal) {
     $scope.reload = function() {
         $scope.clear();
 
-        // if there is a tail, close it
-        if (tailFile) {
-            tailFile.unwatch();
-        }
         // if there is a file-exists-interval, clear it
         if (existsInt) {
             clearInterval(existsInt);
@@ -184,6 +180,10 @@ logviewerApp.controller('logviewerAppCtl', function($scope, $modal) {
                         update();
                     });
 
+                    // if there is a tail, close it
+                    if (tailFile) {
+                        tailFile.unwatch();
+                    }
                     // tail the file
                     tailFile = new Tail($scope.file);
                     tailFile.on('line', function(data) {

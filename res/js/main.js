@@ -5,6 +5,12 @@ Tail = require('tail').Tail;
 
 // window actions
 var win = gui.Window.get();
+
+var params = gui.App.argv;
+if (params.indexOf('--maximize') != -1) {
+    win.maximize();
+}
+
 // on load, load settings
 win.on('loaded', function() {
     // load settings
